@@ -19,12 +19,35 @@
             <input type="text" id="address" name="address" required><br><br>
             <input type="submit" value="Submit">
         </form>
-        
+
         <hr>
-        
+
         <h1>Student Records</h1>
         <!-- Display student records -->
         <?php include 'display.php'; ?>
+        
+        <!-- Button to delete all records -->
+        <form action="delete_all.php" method="POST" onsubmit="return confirmDelete();">
+            <input type="submit" value="Delete All Records">
+        </form>
     </div>
+
+    <script>
+    function confirmDelete() {
+        // First confirmation
+        var firstConfirmation = confirm('Are you sure you want to delete all records?');
+        if (firstConfirmation) {
+            // Second confirmation
+            var secondConfirmation = confirm('This action cannot be undone. Are you sure you want to proceed?');
+            if (secondConfirmation) {
+                return true; // Proceed with deletion
+            } else {
+                return false; // Cancel deletion
+            }
+        } else {
+            return false; // Cancel deletion
+        }
+    }
+    </script>
 </body>
 </html>
