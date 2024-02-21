@@ -5,6 +5,11 @@
 sudo apt update
 sudo apt install mysql-server php apache2 -y
 
+sudo apt install php-mysql
+
+## Ignore if below is not work
+sudo a2enmod php
+
 ## Setup MySQL Password
 
 sudo mysql_secure_installation
